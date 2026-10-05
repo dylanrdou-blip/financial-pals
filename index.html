@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Financial Pal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span id="botEmoji" class="brand-emoji"></span>
+      <div>
+        <h1 id="botName"></h1>
+        <p id="botTagline"></p>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="newChatBtn" class="btn-ghost" type="button">New chat</button>
+      <button id="keyBtn" class="btn-ghost" type="button">API key</button>
+    </div>
+  </header>
+
+  <main id="chat" class="chat" aria-live="polite"></main>
+
+  <div id="starters" class="starters"></div>
+
+  <footer class="composer">
+    <textarea id="input" rows="1" placeholder="Type your question..." aria-label="Message"></textarea>
+    <button id="sendBtn" class="btn-send" type="button">Send</button>
+  </footer>
+
+  <dialog id="keyDialog" class="dialog">
+    <h2>Your Gemini API key</h2>
+    <p class="hint">Paste your key below. It stays in your browser and is only sent to Google.</p>
+    <input id="keyInput" type="password" placeholder="Paste API key here" autocomplete="off">
+    <label class="remember">
+      <input id="rememberBox" type="checkbox"> Remember on this device
+    </label>
+    <div class="dialog-actions">
+      <button id="keyRemove" class="btn-ghost" type="button">Remove key</button>
+      <button id="keyCancel" class="btn-ghost" type="button">Cancel</button>
+      <button id="keySave" class="btn-send" type="button">Save</button>
+    </div>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
