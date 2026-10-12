@@ -6,17 +6,49 @@
   --text: #201a1b;
   --muted: #6d6264;
   --border: #e7dcde;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121011;
-    --surface: #1c1819;
-    --text: #f2ebec;
-    --muted: #a09395;
-    --border: #352e30;
-  }
+/* Light colors (default) */
+:root {
+  --accent: #BA0C2F;
+  --bg: #faf6f6;
+  --surface: #ffffff;
+  --text: #201a1b;
+  --muted: #6d6264;
+  --border: #e7dcde;
 }
 
+/* Dark colors, applied when the switch is on */
+:root[data-theme="dark"] {
+  --bg: #121011;
+  --surface: #1c1819;
+  --text: #f2ebec;
+  --muted: #a09395;
+  --border: #352e30;
+}
+
+/* The switch itself */
+.theme-toggle {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+.theme-toggle .knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+.theme-toggle[aria-checked="true"] .knob {
+  transform: translateX(20px);
+}
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 body {
