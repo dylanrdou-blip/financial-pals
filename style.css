@@ -1,12 +1,4 @@
-/* Colors. The accent color comes from config.js. */
-:root {
-  --accent: #BA0C2F;
-  --bg: #faf6f6;
-  --surface: #ffffff;
-  --text: #201a1b;
-  --muted: #6d6264;
-  --border: #e7dcde;
-/* Light colors (default) */
+/* Light colors (default). The accent color comes from config.js. */
 :root {
   --accent: #BA0C2F;
   --bg: #faf6f6;
@@ -25,30 +17,6 @@
   --border: #352e30;
 }
 
-/* The switch itself */
-.theme-toggle {
-  position: relative;
-  width: 46px;
-  height: 26px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.25);
-  cursor: pointer;
-}
-.theme-toggle .knob {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #fff;
-  transition: transform 0.2s ease;
-}
-.theme-toggle[aria-checked="true"] .knob {
-  transform: translateX(20px);
-}
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 body {
@@ -78,8 +46,33 @@ body {
 .brand-emoji { font-size: 28px; }
 .brand h1 { margin: 0; font-size: 18px; }
 .brand p { margin: 0; font-size: 12px; opacity: 0.9; }
-.actions { display: flex; gap: 6px; flex-shrink: 0; }
+.actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 .topbar .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, 0.6); }
+
+/* Light/dark switch */
+.theme-toggle {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+.theme-toggle .knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+.theme-toggle[aria-checked="true"] .knob {
+  transform: translateX(20px);
+}
 
 /* Buttons */
 button { font: inherit; cursor: pointer; }
