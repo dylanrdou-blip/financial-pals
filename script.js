@@ -238,6 +238,28 @@ inputEl.addEventListener("input", () => {
   inputEl.style.height = "auto";
   inputEl.style.height = Math.min(inputEl.scrollHeight, 140) + "px";
 });
+// ---------- Light/dark switch ----------
+const themeToggle = document.getElementById("themeToggle");
 
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  themeToggle.setAttribute("aria-checked", theme === "dark");
+}
+
+// Start with the saved choice, or the device's setting
+let savedTheme = null;
+try { savedTheme = localStorage.getItem("theme"); } catch (e) {}
+applyTheme(
+  savedTheme ||
+  (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+);
+
+// Flip and remember on click
+themeToggle.addEventListener("click", () => {
+  const next =
+    document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  applyTheme(next);
+  try { localStorage.setItem("theme", next); } catch (e) {}
+});
 // ---------- Start ----------
 newChat();
