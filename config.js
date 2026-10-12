@@ -22,7 +22,7 @@ const CONFIG = {
   model: "gemini-flash-latest",
 
   // Main color (hex code)
-  themeColor: "#BA0C2F",
+  themeColor: "#00CDAC",
 
   // The bot's rules. This is what shapes how it answers.
   systemInstructions: `You are Financial Pal, a friendly and encouraging chatbot that helps college students and other individuals understand personal finance. Keep answers brief.
