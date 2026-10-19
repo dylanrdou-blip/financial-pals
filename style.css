@@ -49,6 +49,17 @@ body {
 .actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 .topbar .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, 0.6); }
 
+/* Notes status line */
+.status {
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.status:empty { display: none; }
+.status.problem { color: var(--accent); }
+
 /* Light/dark switch */
 .theme-toggle {
   position: relative;
@@ -127,6 +138,13 @@ button { font: inherit; cursor: pointer; }
   white-space: pre-wrap;
 }
 .error { border-color: var(--accent); }
+
+/* Sources under a reply */
+.sources { margin-top: 8px; font-size: 13px; color: var(--muted); }
+.sources summary { cursor: pointer; }
+.sources ol { margin: 6px 0 0; padding-left: 20px; }
+.sources li { margin-bottom: 6px; }
+.sources .score { font-style: italic; }
 
 /* Thinking animation */
 .dots { display: inline-flex; gap: 5px; padding: 4px 0; }
