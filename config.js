@@ -24,7 +24,7 @@ const CONFIG = {
 
   // Which Gemini model writes the answers. If you see a
   // "model not found" error, change this to a current model name.
-  model: "gemini-2.5-flash-lite",
+   model: "gemini-3.1-flash-lite",
 
   // Main color (hex code)
   themeColor: "#BA0C2F",
