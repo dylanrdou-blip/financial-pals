@@ -48,6 +48,12 @@ body {
 .brand p { margin: 0; font-size: 12px; opacity: 0.9; }
 .actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 .topbar .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, 0.6); }
+.topbar .explain-toggle[aria-pressed="true"] {
+  background: #fff;
+  color: var(--accent);
+  border-color: #fff;
+  font-weight: 700;
+}
 
 /* Notes status line */
 .status {
@@ -218,3 +224,17 @@ button { font: inherit; cursor: pointer; }
 .remember { display: block; margin: 12px 0; font-size: 14px; }
 .dialog-actions { display: flex; gap: 8px; justify-content: flex-end; }
 .dialog-actions .btn-send { padding: 8px 18px; }
+
+@media (max-width: 560px) {
+  .topbar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .explain-toggle {
+    margin-right: auto;
+  }
+}

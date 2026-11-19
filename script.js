@@ -13,6 +13,7 @@ const statusEl = document.getElementById("status");
 
 let history = []; // your plain questions and the bot's answers (no notes)
 let busy = false;
+let explainLike12 = false;
 
 // Notes (knowledge) state
 let notes = [];            // each note: { title, text, vector }
@@ -185,6 +186,18 @@ document.getElementById("keySave").addEventListener("click", () => {
 document.getElementById("keyRemove").addEventListener("click", () => {
   removeKey();
   keyDialog.close();
+});
+
+// ---------- Explain-like-I'm-12 mode ----------
+const explain12Btn = document.getElementById("explain12Btn");
+
+function setExplainLike12(enabled) {
+  explainLike12 = enabled;
+  explain12Btn.setAttribute("aria-pressed", enabled ? "true" : "false");
+}
+
+explain12Btn.addEventListener("click", () => {
+  setExplainLike12(!explainLike12);
 });
 
 // ---------- Friendly error messages ----------
@@ -512,7 +525,11 @@ async function sendMessage(text) {
       { role: "user", parts: [{ text: knowledgeOn ? buildPrompt(text, found) : text }] }
     ]);
     const system =
-      CONFIG.systemInstructions + (knowledgeOn ? "\n\n" + CONFIG.knowledgeRules : "");
+      CONFIG.systemInstructions +
+      (explainLike12
+        ? "\n\nEXPLAIN-LIKE-I'M-12 MODE: Explain in very simple language appropriate for a 12-year-old. Use short sentences and concrete everyday examples. Define unfamiliar terms when you use them. Avoid childish jokes, but keep the tone friendly and encouraging."
+        : "") +
+      (knowledgeOn ? "\n\n" + CONFIG.knowledgeRules : "");
 
     const url =
       "https://generativelanguage.googleapis.com/v1beta/models/" +
